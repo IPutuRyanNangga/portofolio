@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil - Ryan</title>
+  <title>Project - Ryan</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen flex flex-col text-white font-sans bg-cover bg-center bg-fixed" 
+<body class="min-h-screen flex flex-col text-white font-sans bg-cover bg-center bg-fixed"
       style="background-image: url('back2.jpg');">
   
   <!-- Header -->
@@ -15,29 +15,72 @@
       <h1 class="text-2xl font-bold">RyanN. Portfolio</h1>
       <nav class="space-x-4">
         <a href="index.html" class="hover:text-teal-400">Home</a>
-        <a href="profil.html" class="hover:text-teal-400 font-semibold">Profil</a>
+        <a href="projek.html" class="hover:text-teal-400 font-semibold">Project</a>
         <a href="pendidikan.html" class="hover:text-teal-400">Pendidikan</a>
         <a href="tugas.html" class="hover:text-teal-400">Tugas JS</a>
       </nav>
     </div>
   </header>
 
-  <!-- Konten Profil -->
-  <main class="flex-1 flex items-center justify-center px-4 bg-black/50">
-    <div class="max-w-3xl w-full p-6 rounded-lg shadow-lg">
-      <h2 class="text-2xl font-bold mb-6 text-center">Profil</h2>
-      <ul class="space-y-4">
-        <li class="bg-gray-800/70 p-4 rounded-md">Tanggal Lahir: 31 Juli 2004</li>
-        <li class="bg-gray-800/70 p-4 rounded-md">Agama: Hindu</li>
-        <li class="bg-gray-800/70 p-4 rounded-md">Alamat: Pupuan</li>
-      </ul>
-      <div class="text-center">
-        <a href="index.html" 
-           class="mt-6 inline-block px-6 py-2 rounded-lg text-white font-semibold bg-cover bg-center hover:opacity-50 transition"
-           style="background-image: url('back1.jpg');">
-          Kembali
-        </a>
+  <!-- Section Judul -->
+  <section class="py-12 bg-black/50 text-center">
+    <h2 class="text-3xl font-bold">Project yang Pernah Dikerjakan</h2>
+    <p class="text-gray-300 mt-2">Kumpulan project kuliah & pribadi</p>
+  </section>
+
+  <!-- Daftar Project -->
+  <main class="flex-1 px-6 py-10 bg-black/40">
+    <div class="max-w-6xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      
+      <!-- Project Card 1 -->
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
+        <img src="img/projek1.jpg" alt="Projek 1" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-bold mb-2">Sistem Sewa Elektronik</h3>
+          <p class="text-gray-300 text-sm">Website untuk penyewaan alat elektronik dengan fitur login, pemesanan, dan manajemen produk.</p>
+          <a href="#" class="inline-block mt-3 text-teal-400 hover:underline">Lihat Detail →</a>
+        </div>
       </div>
+
+      <!-- Project Card 2 -->
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
+        <img src="img/projek2.jpg" alt="Projek 2" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-bold mb-2">Analisis Algoritma Brute Force</h3>
+          <p class="text-gray-300 text-sm">Makalah & implementasi C++ untuk pencarian objek dalam game Hello Neighbor menggunakan brute force.</p>
+          <a href="#" class="inline-block mt-3 text-teal-400 hover:underline">Lihat Detail →</a>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
+        <img src="img/projek3.jpg" alt="Projek 3" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-bold mb-2">Sistem Informasi Bengkel</h3>
+          <p class="text-gray-300 text-sm">Pengembangan sistem informasi untuk UMKM Bengkel Dexar Motor dengan fitur manajemen layanan & produk.</p>
+          <a href="#" class="inline-block mt-3 text-teal-400 hover:underline">Lihat Detail →</a>
+        </div>
+      </div>
+
+      <!-- Project Card 4 -->
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
+        <img src="img/projek4.jpg" alt="Projek 4" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-bold mb-2">Aplikasi Daftar Belanja</h3>
+          <p class="text-gray-300 text-sm">Proyek kecil berbasis Next.js untuk mencatat daftar belanja dengan UI sederhana.</p>
+          <a href="#" class="inline-block mt-3 text-teal-400 hover:underline">Lihat Detail →</a>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Tombol Kembali -->
+    <div class="text-center mt-10">
+      <a href="index.html" 
+         class="inline-block px-6 py-2 rounded-lg text-white font-semibold bg-cover bg-center hover:opacity-75 transition"
+         style="background-image: url('back1.jpg');">
+        ⬅ Kembali
+      </a>
     </div>
   </main>
 

@@ -3,75 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pendidikan</title>
+  <title>Pendidikan - Ryan</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans">
-  
-  <!-- Container -->
-  <div class="max-w-5xl mx-auto mt-10 bg-slate-800 rounded-xl shadow-lg p-8">
-    <h2 class="text-3xl font-bold text-center mb-10 text-indigo-400">Riwayat Pendidikan</h2>
+<body class="min-h-screen flex flex-col text-white font-sans bg-cover bg-center bg-fixed"
+      style="background-image: url('back2.jpg');">
 
-    <!-- Grid Pendidikan -->
-    <div class="grid gap-8 sm:grid-cols-2">
+  <!-- Header -->
+  <header class="bg-black/40 p-4 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">RyanN. Portfolio</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="hover:text-teal-400">Home</a>
+        <a href="projek.html" class="hover:text-teal-400">Project</a>
+        <a href="pendidikan.html" class="hover:text-teal-400 font-semibold">Pendidikan</a>
+        <a href="tugas.html" class="hover:text-teal-400">Tugas JS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Section Judul -->
+  <section class="py-12 bg-black/50 text-center">
+    <h2 class="text-3xl font-bold">Riwayat Pendidikan</h2>
+    <p class="text-gray-300 mt-2">Perjalanan pendidikan dari SD hingga Perguruan Tinggi</p>
+  </section>
+
+  <!-- Daftar Pendidikan -->
+  <main class="flex-1 px-6 py-10 bg-black/40">
+    <div class="max-w-6xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
       
       <!-- SD -->
-      <div class="bg-slate-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-        <img src="img/sd.jpg" alt="SD" class="w-full h-40 object-cover">
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
+        <img src="sd.jpg" alt="SD" class="w-full h-40 object-cover">
         <div class="p-4">
-          <h3 class="text-xl font-semibold">SD Negeri 2 Pupuan</h3>
-          <p class="text-slate-300 text-sm">2008 - 2014</p>
+          <h3 class="text-xl font-bold mb-1">SD Negeri 2 Pupuan</h3>
+          <p class="text-gray-300 text-sm">2008 - 2014</p>
         </div>
       </div>
 
       <!-- SMP -->
-      <div class="bg-slate-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
         <img src="fotosmp.jpg" alt="SMP" class="w-full h-40 object-cover">
         <div class="p-4">
-          <h3 class="text-xl font-semibold">SMP Negeri 1 Pupuan</h3>
-          <p class="text-slate-300 text-sm">2014 - 2017</p>
+          <h3 class="text-xl font-bold mb-1">SMP Negeri 1 Pupuan</h3>
+          <p class="text-gray-300 text-sm">2014 - 2017</p>
         </div>
       </div>
 
       <!-- SMA -->
-      <div class="bg-slate-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
         <img src="fotosma.jpg" alt="SMA" class="w-full h-40 object-cover">
         <div class="p-4">
-          <h3 class="text-xl font-semibold">SMA Negeri 1 Pupuan</h3>
-          <p class="text-slate-300 text-sm">2017 - 2020</p>
+          <h3 class="text-xl font-bold mb-1">SMA Negeri 1 Pupuan</h3>
+          <p class="text-gray-300 text-sm">2017 - 2020</p>
         </div>
       </div>
 
       <!-- Kuliah -->
-      <div class="bg-slate-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
-        <img src="kuliah.jpg" alt="Universitas" class="w-full h-48 object-cover">
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
+        <img src="kuliah.jpg" alt="Universitas" class="w-full h-40 object-cover">
         <div class="p-4">
-          <h3 class="text-xl font-semibold">Universitas Pendidikan Ganesha</h3>
-          <p class="text-slate-300 text-sm">2022 - Sekarang</p>
+          <h3 class="text-xl font-bold mb-1">Universitas Pendidikan Ganesha</h3>
+          <p class="text-gray-300 text-sm">2022 - Sekarang</p>
           <!-- Google Maps Embed -->
-          <div class="mt-3">
+          <div class="mt-3 rounded-lg overflow-hidden">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.481819360732!2d115.086!3d-8.114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd1dd2a5c3e49c7%3A0x1234567890abcdef!2sUniversitas%20Pendidikan%20Ganesha!5e0!3m2!1sid!2sid!4v1693900000000!5m2!1sid!2sid" 
               width="100%" 
-              height="200" 
+              height="180" 
               style="border:0;" 
               allowfullscreen="" 
-              loading="lazy" 
-              referrerpolicy="no-referrer-when-downgrade">
+              loading="lazy">
             </iframe>
           </div>
         </div>
       </div>
-      
+
+    </div>
 
     <!-- Tombol Kembali -->
     <div class="text-center mt-10">
       <a href="index.html" 
-         class="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-500 transition">
+         class="inline-block px-6 py-2 rounded-lg text-white font-semibold bg-cover bg-center hover:opacity-75 transition"
+         style="background-image: url('back1.jpg');">
         ⬅ Kembali
       </a>
     </div>
-  </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black/40 text-center p-4">
+    <p>&copy; 2025 Ryan Nangga | Dibuat dengan Tailwind CSS</p>
+  </footer>
 
 </body>
 </html>
