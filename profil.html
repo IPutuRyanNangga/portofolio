@@ -3,18 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profil</title>
+  <title>Profil - Ryan</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white">
-  <div class="max-w-3xl mx-auto p-6">
-    <h2 class="text-2xl font-bold mb-4">Profil</h2>
-    <ul class="space-y-3">
-      <li class="bg-gray-800 p-4 rounded-md">Tanggal Lahir: 31/Juli/2004</li>
-      <li class="bg-gray-800 p-4 rounded-md">Agama: Hindu</li>
-      <li class="bg-gray-800 p-4 rounded-md">Alamat: Pupuan</li>
-    </ul>
-    <a href="index.html" class="mt-6 inline-block bg-teal-500 px-4 py-2 rounded-lg hover:bg-teal-600">⬅ Kembali</a>
-  </div>
+<body class="min-h-screen flex flex-col text-white font-sans bg-cover bg-center bg-fixed" 
+      style="background-image: url('back2.jpg');">
+  
+  <!-- Header -->
+  <header class="bg-black/40 p-4 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">RyanN. Portfolio</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="hover:text-teal-400">Home</a>
+        <a href="profil.html" class="hover:text-teal-400 font-semibold">Profil</a>
+        <a href="pendidikan.html" class="hover:text-teal-400">Pendidikan</a>
+        <a href="tugas.html" class="hover:text-teal-400">Tugas JS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Konten Profil -->
+  <main class="flex-1 flex items-center justify-center px-4 bg-black/50">
+    <div class="max-w-3xl w-full p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-bold mb-6 text-center">Profil</h2>
+      <ul class="space-y-4">
+        <li class="bg-gray-800/70 p-4 rounded-md">Tanggal Lahir: 31 Juli 2004</li>
+        <li class="bg-gray-800/70 p-4 rounded-md">Agama: Hindu</li>
+        <li class="bg-gray-800/70 p-4 rounded-md">Alamat: Pupuan</li>
+      </ul>
+      <div class="text-center">
+        <a href="index.html" 
+           class="mt-6 inline-block px-6 py-2 rounded-lg text-white font-semibold bg-cover bg-center hover:opacity-50 transition"
+           style="background-image: url('back1.jpg');">
+          Kembali
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black/40 text-center p-4">
+    <p>&copy; 2025 Ryan Nangga | Dibuat dengan Tailwind CSS</p>
+  </footer>
+
 </body>
 </html>
