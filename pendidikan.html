@@ -10,20 +10,60 @@
       style="background-image: url('back1.jpg');">
 
   <!-- Header -->
-  <header class="bg-black/40 p-4 shadow-md">
+  <header class="bg-black/40 p-4 shadow-md fixed w-full top-0 z-50">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">RyanN. Portfolio</h1>
-      <nav class="space-x-4">
-        <a href="index.html" class="hover:text-teal-400">Home</a>
-        <a href="projek.html" class="hover:text-teal-400">Project</a>
-        <a href="pendidikan.html" class="hover:text-teal-400 font-semibold">Pendidikan</a>
-        <a href="tugas.html" class="hover:text-teal-400">contact</a>
-      </nav>
+      <!-- Logo -->
+      <h1 class="text-xl md:text-2xl font-bold">RyanN. Portfolio</h1>
+      
+      <!-- Icon Sosmed + Hamburger -->
+      <div class="flex items-center space-x-4">
+        <!-- Instagram -->
+        <a href="https://instagram.com/rryannangga" target="_blank" aria-label="Instagram"
+           class="hover:text-pink-500 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
+               viewBox="0 0 24 24" class="w-6 h-6">
+            <path d="M7.75 2A5.75 5.75 0 0 0 2 7.75v8.5A5.75 5.75 0 0 0 7.75 22h8.5A5.75 5.75 0 0 0 22 16.25v-8.5A5.75 5.75 0 0 0 16.25 2h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm6.5-.25a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+          </svg>
+        </a>
+        <!-- TikTok -->
+        <a href="https://tiktok.com/@ryan_nangga" target="_blank" aria-label="TikTok"
+           class="hover:text-sky-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
+               viewBox="0 0 24 24" class="w-6 h-6">
+            <path d="M12.5 2c1 0 2 .4 2.8 1.2.8.7 1.2 1.7 1.2 2.8a4 4 0 0 0 4 4h1v3h-1a7 7 0 0 1-4-1.3V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V2h-1Z"/>
+          </svg>
+        </a>
+        <!-- Hamburger -->
+        <button id="menu-btn" class="focus:outline-none" aria-label="Menu">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
     </div>
+
+    <!-- Menu dropdown -->
+    <nav id="mobile-menu" class="hidden bg-black/70 mt-2 rounded-lg overflow-hidden transition-all duration-300 ease-in-out">
+      <a href="profil.html" class="block px-4 py-2 hover:bg-black/50">Profil</a>
+      <a href="pendidikan.html" class="block px-4 py-2 hover:bg-black/50">Pendidikan</a>
+      <a href="tugas.html" class="block px-4 py-2 hover:bg-black/50">Contact</a>
+      <a href="kalkulator.html" class="block px-4 py-2 hover:bg-black/50">Kalkulator</a>
+    </nav>
   </header>
 
+  <!-- Script toggle -->
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+
   <!-- Section Judul -->
-  <section class="py-12 bg-black/50 text-center">
+  <section class="pt-24 pb-12 bg-black/50 text-center">
     <h2 class="text-3xl font-bold">Riwayat Pendidikan</h2>
     <p class="text-gray-300 mt-2">Perjalanan pendidikan dari SD hingga Perguruan Tinggi</p>
   </section>
@@ -33,8 +73,8 @@
     <div class="max-w-6xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
       
       <!-- SD -->
-      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
-        <img src="sd.jpg" alt="SD" class="w-full h-40 object-cover">
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform">
+        <img src="sd.jpg" alt="SD Negeri 2 Pupuan" class="w-full h-40 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-bold mb-1">SD Negeri 2 Pupuan</h3>
           <p class="text-gray-300 text-sm">2008 - 2014</p>
@@ -42,8 +82,8 @@
       </div>
 
       <!-- SMP -->
-      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
-        <img src="fotosmp.jpg" alt="SMP" class="w-full h-40 object-cover">
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform">
+        <img src="fotosmp.jpg" alt="SMP Negeri 1 Pupuan" class="w-full h-40 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-bold mb-1">SMP Negeri 1 Pupuan</h3>
           <p class="text-gray-300 text-sm">2014 - 2017</p>
@@ -51,8 +91,8 @@
       </div>
 
       <!-- SMA -->
-      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
-        <img src="fotosma.jpg" alt="SMA" class="w-full h-40 object-cover">
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform">
+        <img src="fotosma.jpg" alt="SMA Negeri 1 Pupuan" class="w-full h-40 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-bold mb-1">SMA Negeri 1 Pupuan</h3>
           <p class="text-gray-300 text-sm">2017 - 2020</p>
@@ -60,8 +100,8 @@
       </div>
 
       <!-- Kuliah -->
-      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
-        <img src="kuliah.jpg" alt="Universitas" class="w-full h-40 object-cover">
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform">
+        <img src="kuliah.jpg" alt="Universitas Pendidikan Ganesha" class="w-full h-40 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-bold mb-1">Universitas Pendidikan Ganesha</h3>
           <p class="text-gray-300 text-sm">2022 - Sekarang</p>
@@ -84,7 +124,7 @@
     <!-- Tombol Kembali -->
     <div class="text-center mt-10">
       <a href="index.html" 
-         class="inline-block px-6 py-2 rounded-lg text-white font-semibold bg-cover bg-center hover:opacity-75 transition"
+         class="inline-block px-6 py-2 rounded-lg text-white font-semibold bg-cover bg-center hover:opacity-80 transition"
          style="background-image: url('back1.jpg');">
         Kembali
       </a>
@@ -92,7 +132,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-black/40 text-center p-4">
+  <footer class="bg-black/40 text-center p-4 mt-auto">
     <p>&copy; 2025 Ryan Nangga | Dibuat dengan Tailwind CSS</p>
   </footer>
 

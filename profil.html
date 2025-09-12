@@ -10,20 +10,60 @@
       style="background-image: url('back1.jpg');">
   
   <!-- Header -->
-  <header class="bg-black/40 p-4 shadow-md">
+  <header class="bg-black/40 p-4 shadow-md fixed w-full top-0 z-50">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">RyanN. Portfolio</h1>
-      <nav class="space-x-4">
-        <a href="index.html" class="hover:text-teal-400">Home</a>
-        <a href="projek.html" class="hover:text-teal-400 font-semibold">Project</a>
-        <a href="pendidikan.html" class="hover:text-teal-400">Pendidikan</a>
-        <a href="tugas.html" class="hover:text-teal-400">contact</a>
-      </nav>
+      <!-- Logo -->
+      <h1 class="text-xl md:text-2xl font-bold">RyanN. Portfolio</h1>
+      
+      <!-- Icon Sosmed + Hamburger -->
+      <div class="flex items-center space-x-4">
+        <!-- Instagram -->
+        <a href="https://instagram.com/rryannangga" target="_blank" aria-label="Instagram"
+           class="hover:text-pink-500 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
+               viewBox="0 0 24 24" class="w-6 h-6">
+            <path d="M7.75 2A5.75 5.75 0 0 0 2 7.75v8.5A5.75 5.75 0 0 0 7.75 22h8.5A5.75 5.75 0 0 0 22 16.25v-8.5A5.75 5.75 0 0 0 16.25 2h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm6.5-.25a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
+          </svg>
+        </a>
+        <!-- TikTok -->
+        <a href="https://tiktok.com/@ryan_nangga" target="_blank" aria-label="TikTok"
+           class="hover:text-sky-400 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
+               viewBox="0 0 24 24" class="w-6 h-6">
+            <path d="M12.5 2c1 0 2 .4 2.8 1.2.8.7 1.2 1.7 1.2 2.8a4 4 0 0 0 4 4h1v3h-1a7 7 0 0 1-4-1.3V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V2h-1Z"/>
+          </svg>
+        </a>
+        <!-- Hamburger -->
+        <button id="menu-btn" class="focus:outline-none" aria-label="Menu">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
     </div>
+
+    <!-- Menu dropdown -->
+    <nav id="mobile-menu" class="hidden bg-black/70 mt-2 rounded-lg overflow-hidden">
+      <a href="profil.html" class="block px-4 py-2 hover:bg-black/50">Profil</a>
+      <a href="pendidikan.html" class="block px-4 py-2 hover:bg-black/50">Pendidikan</a>
+      <a href="tugas.html" class="block px-4 py-2 hover:bg-black/50">Contact</a>
+      <a href="kalkulator.html" class="block px-4 py-2 hover:bg-black/50">Kalkulator</a>
+    </nav>
   </header>
 
+  <!-- Script toggle -->
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+
   <!-- Section Judul -->
-  <section class="py-12 bg-black/50 text-center">
+  <section class="pt-24 pb-12 bg-black/50 text-center">
     <h2 class="text-3xl font-bold">Project yang Pernah Dikerjakan</h2>
     <p class="text-gray-300 mt-2">Kumpulan project kuliah & pribadi</p>
   </section>
@@ -32,9 +72,9 @@
   <main class="flex-1 px-6 py-10 bg-black/40">
     <div class="max-w-6xl mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
       
-      <!-- Project Card 1 -->
-      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
-        <img src="img/projek1.jpg" alt="Projek 1" class="w-full h-40 object-cover">
+      <!-- Project Card -->
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform">
+        <img src="img/projek1.jpg" alt="Sistem Sewa Elektronik" class="w-full h-40 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-bold mb-2">Sistem Sewa Elektronik</h3>
           <p class="text-gray-300 text-sm">Website untuk penyewaan alat elektronik dengan fitur login, pemesanan, dan manajemen produk.</p>
@@ -42,9 +82,8 @@
         </div>
       </div>
 
-      <!-- Project Card 2 -->
-      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
-        <img src="img/projek2.jpg" alt="Projek 2" class="w-full h-40 object-cover">
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform">
+        <img src="img/projek2.jpg" alt="Analisis Algoritma Brute Force" class="w-full h-40 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-bold mb-2">Analisis Algoritma Brute Force</h3>
           <p class="text-gray-300 text-sm">Makalah & implementasi C++ untuk pencarian objek dalam game Hello Neighbor menggunakan brute force.</p>
@@ -52,9 +91,8 @@
         </div>
       </div>
 
-      <!-- Project Card 3 -->
-      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
-        <img src="img/projek3.jpg" alt="Projek 3" class="w-full h-40 object-cover">
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform">
+        <img src="img/projek3.jpg" alt="Sistem Informasi Bengkel" class="w-full h-40 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-bold mb-2">Sistem Informasi Bengkel</h3>
           <p class="text-gray-300 text-sm">Pengembangan sistem informasi untuk UMKM Bengkel Dexar Motor dengan fitur manajemen layanan & produk.</p>
@@ -62,9 +100,8 @@
         </div>
       </div>
 
-      <!-- Project Card 4 -->
-      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition">
-        <img src="img/projek4.jpg" alt="Projek 4" class="w-full h-40 object-cover">
+      <div class="bg-gray-800/70 rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform">
+        <img src="img/projek4.jpg" alt="Aplikasi Daftar Belanja" class="w-full h-40 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-bold mb-2">Aplikasi Daftar Belanja</h3>
           <p class="text-gray-300 text-sm">Proyek kecil berbasis Next.js untuk mencatat daftar belanja dengan UI sederhana.</p>
@@ -77,7 +114,7 @@
     <!-- Tombol Kembali -->
     <div class="text-center mt-10">
       <a href="index.html" 
-         class="inline-block px-6 py-2 rounded-lg text-white font-semibold bg-cover bg-center hover:opacity-75 transition"
+         class="inline-block px-6 py-2 rounded-lg text-white font-semibold bg-cover bg-center hover:opacity-80 transition"
          style="background-image: url('back1.jpg');">
         Kembali
       </a>
@@ -85,7 +122,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-black/40 text-center p-4">
+  <footer class="bg-black/40 text-center p-4 mt-auto">
     <p>&copy; 2025 Ryan Nangga | Dibuat dengan Tailwind CSS</p>
   </footer>
 
