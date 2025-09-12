@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kalkulator Bangun Datar</title>
+  <title>Kalkulator Bangun Datar & Fibonacci</title>
   <link href="./src/output.css" rel="stylesheet">
 
   <!-- Google Fonts -->
@@ -22,8 +22,8 @@
 
   <!-- Header -->
   <header class="bg-black/50 p-4 text-center shadow-md">
-    <h1 class="text-3xl font-bold">Kalkulator Luas Bangun Datar</h1>
-    <p class="text-gray-200">Hitung luas berbagai bangun datar dengan mudah</p>
+    <h1 class="text-3xl font-bold">Kalkulator Luas Bangun Datar & Fibonacci</h1>
+    <p class="text-gray-200">Hitung luas bangun datar atau cari bilangan Fibonacci dengan mudah</p>
   </header>
 
   <!-- Main -->
@@ -31,34 +31,37 @@
     <div class="bg-black/40 backdrop-blur-md rounded-lg shadow-lg p-6 w-full max-w-4xl">
       <form id="calcForm" class="grid md:grid-cols-2 gap-6">
 
-        <!-- Pilih Bangun -->
+        <!-- Pilih Opsi -->
         <div>
-          <h2 class="text-xl font-semibold mb-3">1) Pilih Bangun Datar</h2>
-          <label class="block mb-2">Bangun Datar</label>
+          <h2 class="text-xl font-semibold mb-3">1) Pilih Perhitungan</h2>
+          <label class="block mb-2">Jenis Perhitungan</label>
           <select id="bangun" class="w-full p-2 rounded bg-black text-shadow-white">
             <option value="trapesium">Trapesium</option>
             <option value="persegi">Persegi</option>
             <option value="persegi_panjang">Persegi Panjang</option>
             <option value="segitiga">Segitiga</option>
             <option value="lingkaran">Lingkaran</option>
+            <option value="fibonacci">Fibonacci</option>
           </select>
 
-          <label class="block mt-4 mb-2">Satuan Panjang</label>
+          <label id="satuanLabel" class="block mt-4 mb-2">Satuan Panjang</label>
           <select id="satuan" class="w-full p-2 rounded bg-black text-shadow-white">
             <option value="cm">cm</option>
             <option value="m">m</option>
           </select>
-          <p class="text-sm text-gray-300 mt-2">Hasil luas otomatis dalam satuan persegi (misal cm², m²)</p>
+          <p class="text-sm text-gray-300 mt-2" id="noteSatuan">
+            Hasil luas otomatis dalam satuan persegi (misal cm², m²)
+          </p>
         </div>
 
         <!-- Input Parameter -->
         <div>
           <h2 class="text-xl font-semibold mb-3">2) Isi Parameter</h2>
           <div id="inputFields" class="space-y-3">
-            <!-- Input dinamis akan muncul di sini -->
+            <!-- Input dinamis muncul di sini -->
           </div>
           <div class="mt-4 flex space-x-3">
-            <button type="button" onclick="hitungLuas()" class="px-4 py-2 rounded bg-indigo-500 hover:bg-indigo-600 font-semibold">Hitung Luas</button>
+            <button type="button" onclick="hitungLuas()" class="px-4 py-2 rounded bg-indigo-500 hover:bg-indigo-600 font-semibold">Hitung</button>
             <button type="reset" onclick="resetHasil()" class="px-4 py-2 rounded bg-gray-400 hover:bg-gray-500 font-semibold">Reset</button>
           </div>
         </div>
@@ -84,10 +87,23 @@
     const hasilDiv = document.getElementById('hasil');
     const output = document.getElementById('output');
     const satuan = document.getElementById('satuan');
+    const satuanLabel = document.getElementById('satuanLabel');
+    const noteSatuan = document.getElementById('noteSatuan');
 
     function renderInput() {
       const bangun = bangunSelect.value;
       let html = '';
+
+      // tampilkan/hidden pilihan satuan
+      if (bangun === 'fibonacci') {
+        satuan.style.display = 'none';
+        satuanLabel.style.display = 'none';
+        noteSatuan.style.display = 'none';
+      } else {
+        satuan.style.display = 'block';
+        satuanLabel.style.display = 'block';
+        noteSatuan.style.display = 'block';
+      }
 
       if (bangun === 'trapesium') {
         html = `
@@ -122,43 +138,63 @@
           <label>Jari-jari (r)</label>
           <input id="r" type="number" placeholder="contoh: 7" class="w-full p-2 rounded bg-white/80 text-black">
         `;
+      } else if (bangun === 'fibonacci') {
+        html = `
+          <label>Masukkan n (misal 5)</label>
+          <input id="n" type="number" placeholder="contoh: 5" class="w-full p-2 rounded bg-white/80 text-black">
+        `;
       }
 
       inputFields.innerHTML = html;
     }
 
+    // fungsi rekursif fibonacci
+    function fibonacci(n) {
+      if (n < 0) return null; // invalid
+      if (n === 0) return 0;
+      if (n === 1) return 1;
+      return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
     function hitungLuas() {
       const bangun = bangunSelect.value;
       const unit = satuan.value + "²";
-      let luas = 0;
+      let hasil = "";
 
       if (bangun === 'trapesium') {
         const a = parseFloat(document.getElementById('a').value);
         const b = parseFloat(document.getElementById('b').value);
         const t = parseFloat(document.getElementById('t').value);
-        luas = 0.5 * (a + b) * t;
+        const luas = 0.5 * (a + b) * t;
+        hasil = "Luas trapesium = " + luas.toFixed(2) + " " + unit;
       } else if (bangun === 'persegi') {
         const s = parseFloat(document.getElementById('s').value);
-        luas = s * s;
+        const luas = s * s;
+        hasil = "Luas persegi = " + luas.toFixed(2) + " " + unit;
       } else if (bangun === 'persegi_panjang') {
         const p = parseFloat(document.getElementById('p').value);
         const l = parseFloat(document.getElementById('l').value);
-        luas = p * l;
+        const luas = p * l;
+        hasil = "Luas persegi panjang = " + luas.toFixed(2) + " " + unit;
       } else if (bangun === 'segitiga') {
         const a = parseFloat(document.getElementById('a').value);
         const t = parseFloat(document.getElementById('t').value);
-        luas = 0.5 * a * t;
+        const luas = 0.5 * a * t;
+        hasil = "Luas segitiga = " + luas.toFixed(2) + " " + unit;
       } else if (bangun === 'lingkaran') {
         const r = parseFloat(document.getElementById('r').value);
-        luas = Math.PI * r * r;
+        const luas = Math.PI * r * r;
+        hasil = "Luas lingkaran = " + luas.toFixed(2) + " " + unit;
+      } else if (bangun === 'fibonacci') {
+        const n = parseInt(document.getElementById('n').value);
+        if (isNaN(n) || n < 0) {
+          hasil = "Masukkan nilai n yang valid (>= 0)";
+        } else {
+          hasil = `F(${n}) = ${fibonacci(n)}`;
+        }
       }
 
-      if (isNaN(luas) || luas <= 0) {
-        output.textContent = "Harap isi parameter dengan benar!";
-      } else {
-        output.textContent = "Luas " + bangun.replace('_',' ') + " = " + luas.toFixed(2) + " " + unit;
-      }
-
+      output.textContent = hasil;
       hasilDiv.classList.remove('hidden');
     }
 
