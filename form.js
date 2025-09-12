@@ -1,9 +1,9 @@
-// Inisialisasi EmailJS
+
 (function () {
-    emailjs.init("8CBvbC9oh-lSYCMI8"); // Ganti dengan Public Key kamu
+    emailjs.init("8CBvbC9oh-lSYCMI8"); 
   })();
   
-  // Tambahkan event listener ke form
+  
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contact-form");
   

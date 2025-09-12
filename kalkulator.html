@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Bangun Datar</title>
+  <link href="./src/output.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    h1, h2, h3, .title {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col text-white font-sans bg-cover bg-center bg-fixed" style="background-image: url('back1.jpg');">
+
+  <!-- Header -->
+  <header class="bg-black/50 p-4 text-center shadow-md">
+    <h1 class="text-3xl font-bold">Kalkulator Luas Bangun Datar</h1>
+    <p class="text-gray-200">Hitung luas berbagai bangun datar dengan mudah</p>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-1 flex items-center justify-center px-4">
+    <div class="bg-black/40 backdrop-blur-md rounded-lg shadow-lg p-6 w-full max-w-4xl">
+      <form id="calcForm" class="grid md:grid-cols-2 gap-6">
+
+        <!-- Pilih Bangun -->
+        <div>
+          <h2 class="text-xl font-semibold mb-3">1) Pilih Bangun Datar</h2>
+          <label class="block mb-2">Bangun Datar</label>
+          <select id="bangun" class="w-full p-2 rounded bg-black text-shadow-white">
+            <option value="trapesium">Trapesium</option>
+            <option value="persegi">Persegi</option>
+            <option value="persegi_panjang">Persegi Panjang</option>
+            <option value="segitiga">Segitiga</option>
+            <option value="lingkaran">Lingkaran</option>
+          </select>
+
+          <label class="block mt-4 mb-2">Satuan Panjang</label>
+          <select id="satuan" class="w-full p-2 rounded bg-black text-shadow-white">
+            <option value="cm">cm</option>
+            <option value="m">m</option>
+          </select>
+          <p class="text-sm text-gray-300 mt-2">Hasil luas otomatis dalam satuan persegi (misal cm², m²)</p>
+        </div>
+
+        <!-- Input Parameter -->
+        <div>
+          <h2 class="text-xl font-semibold mb-3">2) Isi Parameter</h2>
+          <div id="inputFields" class="space-y-3">
+            <!-- Input dinamis akan muncul di sini -->
+          </div>
+          <div class="mt-4 flex space-x-3">
+            <button type="button" onclick="hitungLuas()" class="px-4 py-2 rounded bg-indigo-500 hover:bg-indigo-600 font-semibold">Hitung Luas</button>
+            <button type="reset" onclick="resetHasil()" class="px-4 py-2 rounded bg-gray-400 hover:bg-gray-500 font-semibold">Reset</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Hasil -->
+      <div id="hasil" class="mt-6 p-4 bg-black/30 rounded hidden">
+        <h2 class="text-lg font-semibold">Hasil:</h2>
+        <p id="output" class="mt-2 text-yellow-300 font-bold"></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black/50 text-center p-4">
+    <p>&copy; 2025 Ryan Nangga | Dibuat dengan Tailwind CSS</p>
+    <a href="index.html" class="text-blue-400 hover:underline">Kembali ke Portofolio</a>
+  </footer>
+
+  <script>
+    const inputFields = document.getElementById('inputFields');
+    const bangunSelect = document.getElementById('bangun');
+    const hasilDiv = document.getElementById('hasil');
+    const output = document.getElementById('output');
+    const satuan = document.getElementById('satuan');
+
+    function renderInput() {
+      const bangun = bangunSelect.value;
+      let html = '';
+
+      if (bangun === 'trapesium') {
+        html = `
+          <label>Sisi Sejajar 1 (a)</label>
+          <input id="a" type="number" placeholder="contoh: 10" class="w-full p-2 rounded bg-white/80 text-black">
+          <label>Sisi Sejajar 2 (b)</label>
+          <input id="b" type="number" placeholder="contoh: 6" class="w-full p-2 rounded bg-white/80 text-black">
+          <label>Tinggi (t)</label>
+          <input id="t" type="number" placeholder="contoh: 4" class="w-full p-2 rounded bg-white/80 text-black">
+        `;
+      } else if (bangun === 'persegi') {
+        html = `
+          <label>Sisi (s)</label>
+          <input id="s" type="number" placeholder="contoh: 5" class="w-full p-2 rounded bg-white/80 text-gray-900">
+        `;
+      } else if (bangun === 'persegi_panjang') {
+        html = `
+          <label>Panjang (p)</label>
+          <input id="p" type="number" placeholder="contoh: 8" class="w-full p-2 rounded bg-white/80 text-black">
+          <label>Lebar (l)</label>
+          <input id="l" type="number" placeholder="contoh: 4" class="w-full p-2 rounded bg-white/80 text-black">
+        `;
+      } else if (bangun === 'segitiga') {
+        html = `
+          <label>Alas (a)</label>
+          <input id="a" type="number" placeholder="contoh: 6" class="w-full p-2 rounded bg-white/80 text-black">
+          <label>Tinggi (t)</label>
+          <input id="t" type="number" placeholder="contoh: 4" class="w-full p-2 rounded bg-white/80 text-black">
+        `;
+      } else if (bangun === 'lingkaran') {
+        html = `
+          <label>Jari-jari (r)</label>
+          <input id="r" type="number" placeholder="contoh: 7" class="w-full p-2 rounded bg-white/80 text-black">
+        `;
+      }
+
+      inputFields.innerHTML = html;
+    }
+
+    function hitungLuas() {
+      const bangun = bangunSelect.value;
+      const unit = satuan.value + "²";
+      let luas = 0;
+
+      if (bangun === 'trapesium') {
+        const a = parseFloat(document.getElementById('a').value);
+        const b = parseFloat(document.getElementById('b').value);
+        const t = parseFloat(document.getElementById('t').value);
+        luas = 0.5 * (a + b) * t;
+      } else if (bangun === 'persegi') {
+        const s = parseFloat(document.getElementById('s').value);
+        luas = s * s;
+      } else if (bangun === 'persegi_panjang') {
+        const p = parseFloat(document.getElementById('p').value);
+        const l = parseFloat(document.getElementById('l').value);
+        luas = p * l;
+      } else if (bangun === 'segitiga') {
+        const a = parseFloat(document.getElementById('a').value);
+        const t = parseFloat(document.getElementById('t').value);
+        luas = 0.5 * a * t;
+      } else if (bangun === 'lingkaran') {
+        const r = parseFloat(document.getElementById('r').value);
+        luas = Math.PI * r * r;
+      }
+
+      if (isNaN(luas) || luas <= 0) {
+        output.textContent = "Harap isi parameter dengan benar!";
+      } else {
+        output.textContent = "Luas " + bangun.replace('_',' ') + " = " + luas.toFixed(2) + " " + unit;
+      }
+
+      hasilDiv.classList.remove('hidden');
+    }
+
+    function resetHasil() {
+      hasilDiv.classList.add('hidden');
+      output.textContent = "";
+      renderInput(); // refresh input
+    }
+
+    bangunSelect.addEventListener('change', renderInput);
+    window.onload = renderInput;
+  </script>
+</body>
+</html>

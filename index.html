@@ -4,20 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio - Ryan</title>
-  
-    <!-- CSS hasil build Tailwind -->
-    <link href="./src/output.css" rel="stylesheet">
-  
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
-  
-    <!-- Setting font -->
     <style>
       body {
-        font-family: 'Poppins', sans-serif; /* font utama */
+        font-family: 'Poppins', sans-serif;
       }
       h1, h2, h3, .title {
-        font-family: 'Montserrat', sans-serif; /* font khusus heading */
+        font-family: 'Montserrat', sans-serif;
       }
     </style>
   </head>
@@ -26,70 +22,100 @@
       style="background-image: url('back1.jpg');">
   
   <!-- Header -->
-  <header class="bg-black/40 p-4 shadow-md">
+  <header class="bg-black/40 p-4 shadow-md fixed w-full top-0 z-50">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <!-- Logo -->
       <h1 class="text-2xl font-bold">RyanN. Portfolio</h1>
-      <nav class="flex space-x-4">
+      
+      <!-- Icon Sosmed + Hamburger -->
+      <div class="flex items-center space-x-4">
         <!-- Instagram -->
         <a href="https://instagram.com/rryannangga" target="_blank" class="hover:text-pink-500">
-          <svg xmlns="http://www.w3.org/2000/svg" 
-               fill="currentColor" 
-               viewBox="0 0 24 24" 
-               class="w-6 h-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
+               viewBox="0 0 24 24" class="w-6 h-6">
             <path d="M7.75 2A5.75 5.75 0 0 0 2 7.75v8.5A5.75 5.75 0 0 0 7.75 22h8.5A5.75 5.75 0 0 0 22 16.25v-8.5A5.75 5.75 0 0 0 16.25 2h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm6.5-.25a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"/>
           </svg>
         </a>
-      
         <!-- TikTok -->
         <a href="https://tiktok.com/@ryan_nangga" target="_blank" class="hover:text-sky-400">
-          <svg xmlns="http://www.w3.org/2000/svg" 
-               fill="currentColor" 
-               viewBox="0 0 24 24" 
-               class="w-6 h-6">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
+               viewBox="0 0 24 24" class="w-6 h-6">
             <path d="M12.5 2c1 0 2 .4 2.8 1.2.8.7 1.2 1.7 1.2 2.8a4 4 0 0 0 4 4h1v3h-1a7 7 0 0 1-4-1.3V16a6 6 0 1 1-6-6v3a3 3 0 1 0 3 3V2h-1Z"/>
           </svg>
         </a>
-      </nav>
-      
+        <!-- Hamburger -->
+        <button id="menu-btn" class="focus:outline-none">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu dropdown -->
+    <div id="mobile-menu" class="hidden bg-black/70 mt-2">
+      <a href="profil.html" class="block px-4 py-2 hover:bg-black/50">Profil</a>
+      <a href="pendidikan.html" class="block px-4 py-2 hover:bg-black/50">Pendidikan</a>
+      <a href="tugas.html" class="block px-4 py-2 hover:bg-black/50">contact</a>
+      <a href="kalkulator.html" class="block px-4 py-2 hover:bg-black/50">Kalkulator</a>
     </div>
   </header>
 
+  <!-- Script toggle -->
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+
   <!-- Hero Section -->
-  <main class="flex-1 flex items-center justify-center text-center px-4 bg-black/50">
+  <main class="flex-1 flex items-center justify-center text-center px-4 bg-black/20 mt-0">
     <div>
       <img src="foto1.jpg" alt="Foto Profil" class="w-32 h-32 rounded-full mx-auto border-4 border-white shadow-lg">
       <h2 class="mt-4 text-3xl font-bold">I Putu Ryan Nangga Putra</h2>
       <p class="text-gray-200">Mahasiswa Ilmu Komputer | Universitas Pendidikan Ganesha</p>
+
+      <!-- Tombol -->
       <div class="mt-6 flex flex-wrap justify-center gap-3">
-        <!-- Tombol Profil -->
         <a href="profil.html" 
-           class="px-6 py-2 rounded-lg text-lg font-semibold text-white bg-cover bg-center relative overflow-hidden transition hover:opacity-10"
+           class="px-6 py-2 rounded-lg text-lg font-semibold text-white bg-cover bg-center relative overflow-hidden transition hover:opacity-90"
            style="background-image: url('back1.jpg');">
-           <div class="absolute inset-0 bg-black/40"></div>
+           <div class="absolute inset-0 bg-black/60"></div>
            <span class="relative z-10">Lihat Projek</span>
         </a>
       
-        <!-- Tombol Pendidikan -->
         <a href="pendidikan.html" 
-           class="px-6 py-2 rounded-lg text-lg font-semibold text-white bg-cover bg-center relative overflow-hidden transition hover:opacity-10"
+           class="px-6 py-2 rounded-lg text-lg font-semibold text-white bg-cover bg-center relative overflow-hidden transition hover:opacity-90"
            style="background-image: url('btn-pendidikan.jpg');">
-           <div class="absolute inset-0 bg-black/40"></div>
+           <div class="absolute inset-0 bg-black/60"></div>
            <span class="relative z-10">Lihat Pendidikan</span>
         </a>
       
-        <!-- Tombol Tugas JS -->
         <a href="tugas.html" 
-           class="px-6 py-2 rounded-lg text-lg font-semibold text-white bg-cover bg-center relative overflow-hidden transition hover:opacity-10"
+           class="px-6 py-2 rounded-lg text-lg font-semibold text-white bg-cover bg-center relative overflow-hidden transition hover:opacity-90"
            style="background-image: url('btn-tugas.jpg');">
-           <div class="absolute inset-0 bg-black/40"></div>
-           <span class="relative z-10">Tugas JS</span>
+           <div class="absolute inset-0 bg-black/60"></div>
+           <span class="relative z-10">contact</span>
+        </a>
+
+        <a href="kalkulator.html" 
+           class="px-6 py-2 rounded-lg text-lg font-semibold text-white bg-cover bg-center relative overflow-hidden transition hover:opacity-90"
+           style="background-image: url('btn-tugas.jpg');">
+           <div class="absolute inset-0 bg-black/60"></div>
+           <span class="relative z-10">Kalkulator</span>
         </a>
       </div>
+
+      <!-- Deskripsi -->
       <div>
         <p class="mt-6 text-gray-300 max-w-md mx-auto"><b>Selamat datang di portofolio saya.</b> Perkenalkan nama saya I Putu Ryan Nangga Putra, bisa dipanggil Ryan atau Ryan Nangga.</p>
         <p class="mt-4 text-gray-300 max-w-md mx-auto">Saya adalah mahasiswa Ilmu Komputer, Jurusan Teknik informatika, Universitas Pendidikan Ganesha.</p>
-        <p class="mt-2 text-gray-300 max-w-md mx-auto">Saat ini, saya sedang fokus mendalami pengembangan teknologi web, saya memiliki hobi musik, dan juga game</p>
-        <p class="mt-2 text-gray-300 max-w-md mx-auto">Dalam perjalanan belajar saya, saya sedang mendalami beberapa bahasa pemrograman seperti HTML, CSS, dan C. Meskipun saya masih di tingkat pemula, saya menggunakannya untuk mengerjakan tugas kuliah dan beberapa projek kuliah</p>
+        <p class="mt-2 text-gray-300 max-w-md mx-auto">Saat ini, saya sedang fokus mendalami pengembangan teknologi web, saya memiliki hobi musik, dan juga game.</p>
+        <p class="mt-2 text-gray-300 max-w-md mx-auto">Dalam perjalanan belajar saya, saya sedang mendalami beberapa bahasa pemrograman seperti HTML, CSS, dan C. Meskipun saya masih di tingkat pemula, saya menggunakannya untuk mengerjakan tugas kuliah dan beberapa projek kuliah.</p>
       </div>
     </div>
   </main>
@@ -98,6 +124,5 @@
   <footer class="bg-black/40 text-center p-4">
     <p>&copy; 2025 Ryan Nangga | Dibuat Tailwind CSS</p>
   </footer>
-
 </body>
 </html>
